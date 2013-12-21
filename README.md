@@ -1,0 +1,3 @@
+# iterator
+
+Creates an iterator

@@ -1,0 +1,273 @@
+{
+    "project": {
+        "name": "iterator",
+        "version": "0.0.0"
+    },
+    "files": {
+        "src/iterator.js": {
+            "name": "src/iterator.js",
+            "modules": {
+                "Iterator": 1
+            },
+            "classes": {
+                "_iterator": 1,
+                "arrayIterator": 1,
+                "objectIterator": 1,
+                "iterator": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Iterator": {
+            "name": "Iterator",
+            "submodules": {},
+            "classes": {
+                "_iterator": 1,
+                "arrayIterator": 1,
+                "objectIterator": 1,
+                "iterator": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/iterator.js",
+            "line": 246,
+            "description": "AMD and CJS module."
+        }
+    },
+    "classes": {
+        "_iterator": {
+            "name": "_iterator",
+            "shortname": "_iterator",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Iterator",
+            "namespace": "",
+            "file": "src/iterator.js",
+            "line": 18,
+            "description": "Should not be used directly.\nDefines common functionality for arrayIterator and objectIterator.",
+            "access": "private",
+            "tagname": ""
+        },
+        "arrayIterator": {
+            "name": "arrayIterator",
+            "shortname": "arrayIterator",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Iterator",
+            "namespace": "",
+            "file": "src/iterator.js",
+            "line": 193,
+            "description": "Default initialization, custom .at method."
+        },
+        "objectIterator": {
+            "name": "objectIterator",
+            "shortname": "objectIterator",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Iterator",
+            "namespace": "",
+            "file": "src/iterator.js",
+            "line": 219,
+            "description": "Has a custom initialization and a custom .at method."
+        },
+        "iterator": {
+            "name": "iterator",
+            "shortname": "iterator",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Iterator",
+            "namespace": "",
+            "file": "src/iterator.js",
+            "line": 246,
+            "description": "This function returns an instance of the correct iterator\naccording to the type of the data object."
+        }
+    },
+    "classitems": [
+        {
+            "file": "src/iterator.js",
+            "line": 27,
+            "description": "Keeps reference to data object through a .data property,\nsets initial currentIndexition and saves options.",
+            "itemtype": "method",
+            "name": "initialize",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "",
+                    "type": "Array|Object"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "_iterator",
+            "module": "Iterator"
+        },
+        {
+            "file": "src/iterator.js",
+            "line": 51,
+            "class": "_iterator",
+            "module": "Iterator"
+        },
+        {
+            "file": "src/iterator.js",
+            "line": 56,
+            "description": "Sets the current index and returns this.\nIf given no argument, returns the current index.",
+            "itemtype": "method",
+            "name": "index",
+            "params": [
+                {
+                    "name": "pos",
+                    "description": "",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "class": "_iterator",
+            "module": "Iterator"
+        },
+        {
+            "file": "src/iterator.js",
+            "line": 81,
+            "description": "Equivalent to calling `iterator.at(pos)`\nfor multiple indexs within a range.",
+            "itemtype": "method",
+            "name": "range",
+            "params": [
+                {
+                    "name": "from",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "until",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "_iterator",
+            "module": "Iterator"
+        },
+        {
+            "file": "src/iterator.js",
+            "line": 105,
+            "description": "Increments the counter and returns the next value.",
+            "itemtype": "method",
+            "name": "next",
+            "class": "_iterator",
+            "module": "Iterator"
+        },
+        {
+            "file": "src/iterator.js",
+            "line": 116,
+            "description": "Returns an array for the next n values\nand increments the counter in n.",
+            "itemtype": "method",
+            "name": "nextN",
+            "params": [
+                {
+                    "name": "quantity",
+                    "description": ""
+                }
+            ],
+            "class": "_iterator",
+            "module": "Iterator"
+        },
+        {
+            "file": "src/iterator.js",
+            "line": 137,
+            "description": "Same as `next`, but backwards.",
+            "itemtype": "method",
+            "name": "previous",
+            "class": "_iterator",
+            "module": "Iterator"
+        },
+        {
+            "file": "src/iterator.js",
+            "line": 148,
+            "description": "Same as `nextN` but backwards.",
+            "itemtype": "method",
+            "name": "previousN",
+            "params": [
+                {
+                    "name": "quantity",
+                    "description": ""
+                }
+            ],
+            "class": "_iterator",
+            "module": "Iterator"
+        },
+        {
+            "file": "src/iterator.js",
+            "line": 160,
+            "description": "Returns the value of the current index.",
+            "itemtype": "method",
+            "name": "current",
+            "class": "_iterator",
+            "module": "Iterator"
+        },
+        {
+            "file": "src/iterator.js",
+            "line": 169,
+            "description": "Returns data object.",
+            "class": "_iterator",
+            "module": "Iterator"
+        },
+        {
+            "file": "src/iterator.js",
+            "line": 176,
+            "description": "This method is called when no more items are found,\neither by `next` or `previous`.",
+            "itemtype": "method",
+            "name": "stop",
+            "class": "_iterator",
+            "module": "Iterator"
+        },
+        {
+            "file": "src/iterator.js",
+            "line": 199,
+            "description": "Returns the value at a given index\noptionally evaluated by a function.",
+            "itemtype": "method",
+            "name": "at",
+            "params": [
+                {
+                    "name": "pos",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "evaluator",
+                    "description": "",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "arrayIterator",
+            "module": "Iterator"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type",
+            "line": " src/iterator.js:51"
+        },
+        {
+            "message": "Missing item type\nReturns data object.",
+            "line": " src/iterator.js:169"
+        }
+    ]
+}

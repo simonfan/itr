@@ -1,0 +1,17 @@
+{
+  "name": "iterator",
+  "main": "src/iterator.js",
+  "version": "0.1.0",
+  "description": "Creates an iterator",
+  "dependencies": {
+    "subject": "~0.2.2",
+    "lodash": "~2.4.1"
+  },
+  "devDependencies": {
+    "requirejs": "*",
+    "requirejs-text": "*",
+    "underscore": "*",
+    "jquery": "*",
+    "qunit": "*"
+  }
+}
