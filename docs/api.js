@@ -1,15 +1,25 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
-        "_iterator",
         "arrayIterator",
         "iterator",
         "objectIterator"
     ],
     "modules": [
-        "Iterator"
+        "Iterator",
+        "base",
+        "iterator"
     ],
     "allModules": [
+        {
+            "displayName": "base",
+            "name": "base",
+            "description": "base"
+        },
+        {
+            "displayName": "iterator",
+            "name": "iterator"
+        },
         {
             "displayName": "Iterator",
             "name": "Iterator",

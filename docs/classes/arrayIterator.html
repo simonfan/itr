@@ -41,8 +41,6 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
-                <li><a href="../classes/_iterator.html">_iterator</a></li>
-            
                 <li><a href="../classes/arrayIterator.html">arrayIterator</a></li>
             
                 <li><a href="../classes/iterator.html">iterator</a></li>
@@ -52,6 +50,10 @@
             </ul>
 
             <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/base.html">base</a></li>
+            
+                <li><a href="../modules/iterator.html">iterator</a></li>
             
                 <li><a href="../modules/Iterator.html">Iterator</a></li>
             
@@ -98,13 +100,14 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_iterator.js.html#l193"><code>src&#x2F;iterator.js:193</code></a>
+            Defined in: <a href="../files/src_iterator_array.js.html#l16"><code>src&#x2F;iterator&#x2F;array.js:16</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/Iterator.html">Iterator</a>
+            Module: <a href="../modules/base.html">base</a><br>
+            Parent Module: <a href="../modules/iterator.html">iterator</a>
         
     
 
@@ -115,6 +118,9 @@
 
 <div class="box intro">
     <p>Default initialization, custom .at method.</p>
+<p>In addition to iterator methods, arrayIterators also have the following <code>Array</code> methods:
+<code>concat</code>, <code>join</code>, <code>pop</code>, <code>push</code>, <code>reverse</code>, <code>shift</code>, <code>slice</code>, <code>sort</code>, <code>splice</code>,
+and <code>unshift</code></p>
 
 </div>
 
@@ -178,12 +184,6 @@
                     
                 </li>
             
-                <li class="arg">
-                    
-                        <code class="optional">[evaluator]</code>
-                    
-                </li>
-            
             </ul><span class="paren">)</span>
         </div>
     
@@ -213,7 +213,7 @@
             
         
         
-        <a href="../files/src_iterator.js.html#l199"><code>src&#x2F;iterator.js:199</code></a>
+        <a href="../files/src_iterator_array.js.html#l26"><code>src&#x2F;iterator&#x2F;array.js:26</code></a>
         
         </p>
 
@@ -224,8 +224,7 @@
     </div>
 
     <div class="description">
-        <p>Returns the value at a given index
-optionally evaluated by a function.</p>
+        <p>Returns the value at a given index</p>
 
     </div>
 
@@ -239,22 +238,6 @@ optionally evaluated by a function.</p>
                     
                         <code class="param-name">pos</code>
                         <span class="type">Number</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[evaluator]</code>
-                        <span class="type">Function</span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     

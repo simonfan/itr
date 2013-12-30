@@ -8,12 +8,12 @@
  * @module Iterator
  */
 var deps = (typeof define !== 'function') ?
-	['./iterator/array', './iterator/object', 'lodash'] :
-	['iterator.array', 'iterator.object', 'lodash'];
+	['./iterator/array', './iterator/object', './iterator/number', 'lodash'] :
+	['iterator.array', 'iterator.object', 'iterator.number', 'lodash'];
 
 if (typeof define !== 'function') { var define = require('amdefine')(module) }	// jshint ignore:line
 
-define(deps, function (arrayIterator, objectIterator, _) {
+define(deps, function (arrayIterator, objectIterator, numberIterator, _) {
 
 	'use strict';
 
@@ -24,12 +24,28 @@ define(deps, function (arrayIterator, objectIterator, _) {
 	 * @class iterator
 	 */
 	var iterator = function iterator(data) {
-		var builder = _.isArray(data) ? arrayIterator : objectIterator;
+		var builder;
+
+		if (_.isArray(data)) {
+
+			builder = arrayIterator;
+
+		} else if (_.isObject(data)) {
+
+			builder = objectIterator;
+
+		} else if (_.isNumber(data)) {
+
+			builder = numberIterator;
+
+		}
+
 		return builder.apply(this, arguments);
 	};
 
 	iterator.object = objectIterator;
 	iterator.array = arrayIterator;
+	iterator.number = numberIterator;
 
 	return iterator;
 });

@@ -2,4 +2,4 @@
 //     (c) simonfan
 //     Iterator is licensed under the MIT terms.
 
-var deps="function"!=typeof define?["./iterator/array","./iterator/object","lodash"]:["iterator.array","iterator.object","lodash"];define(deps,function(r,t,e){var a=function(a){var o=e.isArray(a)?r:t;return o.apply(this,arguments)};return a.object=t,a.array=r,a}),define("iterator",function(){});
+var deps="function"!=typeof define?["./iterator/array","./iterator/object","./iterator/number","lodash"]:["iterator.array","iterator.object","iterator.number","lodash"];define(deps,function(r,e,t,a){var i=function(i){var n;return a.isArray(i)?n=r:a.isObject(i)?n=e:a.isNumber(i)&&(n=t),n.apply(this,arguments)};return i.object=e,i.array=r,i.number=t,i}),define("iterator",function(){});

@@ -4,15 +4,46 @@
         "version": "0.0.0"
     },
     "files": {
-        "src/iterator.js": {
-            "name": "src/iterator.js",
+        "src/iterator/array.js": {
+            "name": "src/iterator/array.js",
+            "modules": {
+                "base": 1
+            },
+            "classes": {
+                "arrayIterator": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/iterator/base.js": {
+            "name": "src/iterator/base.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/iterator/number.js": {
+            "name": "src/iterator/number.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/iterator/object.js": {
+            "name": "src/iterator/object.js",
+            "modules": {},
+            "classes": {
+                "objectIterator": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/index.js": {
+            "name": "src/index.js",
             "modules": {
                 "Iterator": 1
             },
             "classes": {
-                "_iterator": 1,
-                "arrayIterator": 1,
-                "objectIterator": 1,
                 "iterator": 1
             },
             "fors": {},
@@ -20,40 +51,51 @@
         }
     },
     "modules": {
+        "iterator": {
+            "name": "iterator",
+            "submodules": {
+                "base": 1
+            },
+            "classes": {
+                "arrayIterator": 1,
+                "objectIterator": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "file": "src/iterator/object.js",
+            "line": 15
+        },
+        "base": {
+            "name": "base",
+            "submodules": {},
+            "classes": {
+                "arrayIterator": 1,
+                "objectIterator": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "iterator",
+            "namespace": "",
+            "file": "src/iterator/object.js",
+            "line": 15,
+            "description": "base"
+        },
         "Iterator": {
             "name": "Iterator",
             "submodules": {},
             "classes": {
-                "_iterator": 1,
-                "arrayIterator": 1,
-                "objectIterator": 1,
                 "iterator": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "src/iterator.js",
-            "line": 246,
+            "file": "src/index.js",
+            "line": 20,
             "description": "AMD and CJS module."
         }
     },
     "classes": {
-        "_iterator": {
-            "name": "_iterator",
-            "shortname": "_iterator",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "Iterator",
-            "namespace": "",
-            "file": "src/iterator.js",
-            "line": 18,
-            "description": "Should not be used directly.\nDefines common functionality for arrayIterator and objectIterator.",
-            "access": "private",
-            "tagname": ""
-        },
         "arrayIterator": {
             "name": "arrayIterator",
             "shortname": "arrayIterator",
@@ -62,11 +104,12 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "Iterator",
+            "module": "iterator",
+            "submodule": "base",
             "namespace": "",
-            "file": "src/iterator.js",
-            "line": 193,
-            "description": "Default initialization, custom .at method."
+            "file": "src/iterator/array.js",
+            "line": 16,
+            "description": "Default initialization, custom .at method.\n\nIn addition to iterator methods, arrayIterators also have the following `Array` methods:\n`concat`, `join`, `pop`, `push`, `reverse`, `shift`, `slice`, `sort`, `splice`,\nand `unshift`"
         },
         "objectIterator": {
             "name": "objectIterator",
@@ -76,10 +119,11 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "Iterator",
+            "module": "iterator",
+            "submodule": "base",
             "namespace": "",
-            "file": "src/iterator.js",
-            "line": 219,
+            "file": "src/iterator/object.js",
+            "line": 15,
             "description": "Has a custom initialization and a custom .at method."
         },
         "iterator": {
@@ -92,15 +136,56 @@
             "extension_for": [],
             "module": "Iterator",
             "namespace": "",
-            "file": "src/iterator.js",
-            "line": 246,
+            "file": "src/index.js",
+            "line": 20,
             "description": "This function returns an instance of the correct iterator\naccording to the type of the data object."
         }
     },
     "classitems": [
         {
-            "file": "src/iterator.js",
-            "line": 27,
+            "file": "src/iterator/array.js",
+            "line": 26,
+            "description": "Returns the value at a given index",
+            "itemtype": "method",
+            "name": "at",
+            "params": [
+                {
+                    "name": "pos",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "arrayIterator",
+            "module": "iterator",
+            "submodule": "base"
+        },
+        {
+            "file": "src/iterator/array.js",
+            "line": 41,
+            "description": "Array methods",
+            "class": "arrayIterator",
+            "module": "iterator",
+            "submodule": "base"
+        },
+        {
+            "file": "src/iterator/array.js",
+            "line": 45,
+            "description": "Methods that alter `data` property directly",
+            "class": "arrayIterator",
+            "module": "iterator",
+            "submodule": "base"
+        },
+        {
+            "file": "src/iterator/array.js",
+            "line": 58,
+            "description": "Methods that create a new array and return a new iterator.",
+            "class": "arrayIterator",
+            "module": "iterator",
+            "submodule": "base"
+        },
+        {
+            "file": "src/iterator/base.js",
+            "line": 16,
             "description": "Keeps reference to data object through a .data property,\nsets initial currentIndexition and saves options.",
             "itemtype": "method",
             "name": "initialize",
@@ -117,18 +202,59 @@
                     "optional": true
                 }
             ],
-            "class": "_iterator",
-            "module": "Iterator"
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
         },
         {
-            "file": "src/iterator.js",
-            "line": 51,
-            "class": "_iterator",
-            "module": "Iterator"
+            "file": "src/iterator/base.js",
+            "line": 35,
+            "description": "Define proto properties.",
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
         },
         {
-            "file": "src/iterator.js",
-            "line": 56,
+            "file": "src/iterator/base.js",
+            "line": 44,
+            "description": "The function that does the evaluation of the retrieved value/",
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
+        },
+        {
+            "file": "src/iterator/base.js",
+            "line": 49,
+            "description": "Simple setter for evaluate.",
+            "itemtype": "method",
+            "name": "evaluator",
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
+        },
+        {
+            "file": "src/iterator/base.js",
+            "line": 58,
+            "description": "Place the currentIndex at the starting position,\nbefore all values.",
+            "itemtype": "method",
+            "name": "start",
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
+        },
+        {
+            "file": "src/iterator/base.js",
+            "line": 68,
+            "description": "Place the currentIndex at the end positiion\nafter all values.",
+            "itemtype": "method",
+            "name": "end",
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
+        },
+        {
+            "file": "src/iterator/base.js",
+            "line": 78,
             "description": "Sets the current index and returns this.\nIf given no argument, returns the current index.",
             "itemtype": "method",
             "name": "index",
@@ -140,12 +266,13 @@
                     "optional": true
                 }
             ],
-            "class": "_iterator",
-            "module": "Iterator"
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
         },
         {
-            "file": "src/iterator.js",
-            "line": 81,
+            "file": "src/iterator/base.js",
+            "line": 103,
             "description": "Equivalent to calling `iterator.at(pos)`\nfor multiple indexs within a range.",
             "itemtype": "method",
             "name": "range",
@@ -161,21 +288,23 @@
                     "type": "Number"
                 }
             ],
-            "class": "_iterator",
-            "module": "Iterator"
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
         },
         {
-            "file": "src/iterator.js",
-            "line": 105,
+            "file": "src/iterator/base.js",
+            "line": 127,
             "description": "Increments the counter and returns the next value.",
             "itemtype": "method",
             "name": "next",
-            "class": "_iterator",
-            "module": "Iterator"
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
         },
         {
-            "file": "src/iterator.js",
-            "line": 116,
+            "file": "src/iterator/base.js",
+            "line": 138,
             "description": "Returns an array for the next n values\nand increments the counter in n.",
             "itemtype": "method",
             "name": "nextN",
@@ -185,21 +314,23 @@
                     "description": ""
                 }
             ],
-            "class": "_iterator",
-            "module": "Iterator"
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
         },
         {
-            "file": "src/iterator.js",
-            "line": 137,
+            "file": "src/iterator/base.js",
+            "line": 164,
             "description": "Same as `next`, but backwards.",
             "itemtype": "method",
             "name": "previous",
-            "class": "_iterator",
-            "module": "Iterator"
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
         },
         {
-            "file": "src/iterator.js",
-            "line": 148,
+            "file": "src/iterator/base.js",
+            "line": 175,
             "description": "Same as `nextN` but backwards.",
             "itemtype": "method",
             "name": "previousN",
@@ -209,65 +340,87 @@
                     "description": ""
                 }
             ],
-            "class": "_iterator",
-            "module": "Iterator"
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
         },
         {
-            "file": "src/iterator.js",
-            "line": 160,
+            "file": "src/iterator/base.js",
+            "line": 193,
             "description": "Returns the value of the current index.",
             "itemtype": "method",
             "name": "current",
-            "class": "_iterator",
-            "module": "Iterator"
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
         },
         {
-            "file": "src/iterator.js",
-            "line": 169,
+            "file": "src/iterator/base.js",
+            "line": 202,
             "description": "Returns data object.",
-            "class": "_iterator",
-            "module": "Iterator"
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
         },
         {
-            "file": "src/iterator.js",
-            "line": 176,
-            "description": "This method is called when no more items are found,\neither by `next` or `previous`.",
-            "itemtype": "method",
-            "name": "stop",
-            "class": "_iterator",
-            "module": "Iterator"
+            "file": "src/iterator/base.js",
+            "line": 220,
+            "description": "From lodash's documentation:\nThe chainable wrapper functions are:\n `after`, `assign`, `bind`, `bindAll`, `bindKey`, `chain`, `compact`,\n `compose`, `concat`, `countBy`, `create`, `createCallback`, `curry`,\n `debounce`, `defaults`, `defer`, `delay`, `difference`, `filter`, `flatten`,\n `forEach`, `forEachRight`, `forIn`, `forInRight`, `forOwn`, `forOwnRight`,\n `functions`, `groupBy`, `indexBy`, `initial`, `intersection`, `invert`,\n `invoke`, `keys`, `map`, `max`, `memoize`, `merge`, `min`, `object`, `omit`,\n `once`, `pairs`, `partial`, `partialRight`, `pick`, `pluck`, `pull`, `push`,\n `range`, `reject`, `remove`, `rest`, `reverse`, `shuffle`, `slice`, `sort`,\n `sortBy`, `splice`, `tap`, `throttle`, `times`, `toArray`, `transform`,\n `union`, `uniq`, `unshift`, `unzip`, `values`, `where`, `without`, `wrap`,\n and `zip`",
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
         },
         {
-            "file": "src/iterator.js",
-            "line": 199,
-            "description": "Returns the value at a given index\noptionally evaluated by a function.",
+            "file": "src/iterator/object.js",
+            "line": 40,
+            "description": "Transformations",
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
+        },
+        {
+            "file": "src/iterator/object.js",
+            "line": 44,
+            "description": "Overwrite the default map transformation method.",
             "itemtype": "method",
-            "name": "at",
-            "params": [
-                {
-                    "name": "pos",
-                    "description": "",
-                    "type": "Number"
-                },
-                {
-                    "name": "evaluator",
-                    "description": "",
-                    "type": "Function",
-                    "optional": true
-                }
-            ],
-            "class": "arrayIterator",
-            "module": "Iterator"
+            "name": "map",
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
         }
     ],
     "warnings": [
         {
-            "message": "Missing item type",
-            "line": " src/iterator.js:51"
+            "message": "Missing item type\nArray methods",
+            "line": " src/iterator/array.js:41"
+        },
+        {
+            "message": "Missing item type\nMethods that alter `data` property directly",
+            "line": " src/iterator/array.js:45"
+        },
+        {
+            "message": "Missing item type\nMethods that create a new array and return a new iterator.",
+            "line": " src/iterator/array.js:58"
+        },
+        {
+            "message": "Missing item type\nDefine proto properties.",
+            "line": " src/iterator/base.js:35"
+        },
+        {
+            "message": "Missing item type\nThe function that does the evaluation of the retrieved value/",
+            "line": " src/iterator/base.js:44"
         },
         {
             "message": "Missing item type\nReturns data object.",
-            "line": " src/iterator.js:169"
+            "line": " src/iterator/base.js:202"
+        },
+        {
+            "message": "Missing item type\nFrom lodash's documentation:\nThe chainable wrapper functions are:\n `after`, `assign`, `bind`, `bindAll`, `bindKey`, `chain`, `compact`,\n `compose`, `concat`, `countBy`, `create`, `createCallback`, `curry`,\n `debounce`, `defaults`, `defer`, `delay`, `difference`, `filter`, `flatten`,\n `forEach`, `forEachRight`, `forIn`, `forInRight`, `forOwn`, `forOwnRight`,\n `functions`, `groupBy`, `indexBy`, `initial`, `intersection`, `invert`,\n `invoke`, `keys`, `map`, `max`, `memoize`, `merge`, `min`, `object`, `omit`,\n `once`, `pairs`, `partial`, `partialRight`, `pick`, `pluck`, `pull`, `push`,\n `range`, `reject`, `remove`, `rest`, `reverse`, `shuffle`, `slice`, `sort`,\n `sortBy`, `splice`, `tap`, `throttle`, `times`, `toArray`, `transform`,\n `union`, `uniq`, `unshift`, `unzip`, `values`, `where`, `without`, `wrap`,\n and `zip`",
+            "line": " src/iterator/base.js:220"
+        },
+        {
+            "message": "Missing item type\nTransformations",
+            "line": " src/iterator/object.js:40"
         }
     ]
 }

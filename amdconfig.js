@@ -11,13 +11,12 @@ require.config({
 		underscore: 'bower_components/underscore/underscore',
 		lodash: 'bower_components/lodash/dist/lodash.compat',
 		subject: 'bower_components/subject/src/subject',
-
 		iterator: 'src/index',
 		'iterator.base': 'src/iterator/base',
 		'iterator.array': 'src/iterator/array',
 		'iterator.object': 'src/iterator/object',
-
-		'iterator.optimized': 'built/iterator',
+		'iterator.number': 'src/iterator/number',
+		'iterator.optimized': 'built/iterator'
 	},
 	shim: {
 		backbone: {

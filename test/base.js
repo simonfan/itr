@@ -463,4 +463,35 @@
 			iter.next().should.eql('2-lalala-second');
 		});
 	});
+
+
+	describe('it = iterator(Number)', function () {
+
+		beforeEach(function () {
+
+			this.keys = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+			this.values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+			this.data = 10;
+
+			this.iter = iterator(this.data);
+		});
+
+		runBasicTests();
+		runTests('counters', counters);
+		runTests('indexers', index);
+		runTests('walkers', walkers);
+
+
+		it('just counts until the given number', function () {
+			var it = this.iter,
+				count = 10,
+				pos = 1;
+
+			while (pos <= count) {
+				it.next();
+				pos ++;
+			}
+		});
+	})
 });

@@ -14,33 +14,28 @@ define(['subject', 'lodash'], function (subject, _) {
 	'use strict';
 
 	/**
-	 * Should not be used directly.
-	 * Defines common functionality for arrayIterator and objectIterator.
+	 * Keeps reference to data object through a .data property,
+	 * sets initial currentIndexition and saves options.
 	 *
-	 * @class iterator
-	 * @private
+	 * @method initialize
+	 * @param data {Array|Object}
+	 * @param [options] {Object}
 	 */
-	var iterator = subject({
+	var iterator = subject(function iterator(data, options) {
+		this.data = data;
 
-		/**
-		 * Keeps reference to data object through a .data property,
-		 * sets initial currentIndexition and saves options.
-		 *
-		 * @method initialize
-		 * @param data {Array|Object}
-		 * @param [options] {Object}
-		 */
-		initialize: function (data, options) {
-			this.data = data;
+		options = options || {};
 
-			options = options || {};
+		this.currentIndex = options.startAt || -1;
 
-			this.currentIndex = options.startAt || -1;
+		this.options = options;
+		this.evaluate = options.evaluate || options.evaluator || this.evaluate;
+	});
 
-			this.options = options;
-			this.evaluate = options.evaluate || options.evaluator || this.evaluate;
-		},
-
+	/**
+	 * Define proto properties.
+	 */
+	iterator.proto({
 		move: function move(quantity) {
 			this.index(this.currentIndex + quantity);
 			return this;

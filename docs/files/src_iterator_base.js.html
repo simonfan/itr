@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/iterator.js - iterator</title>
+    <title>src/iterator/base.js - iterator</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -41,8 +41,6 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
-                <li><a href="../classes/_iterator.html">_iterator</a></li>
-            
                 <li><a href="../classes/arrayIterator.html">arrayIterator</a></li>
             
                 <li><a href="../classes/iterator.html">iterator</a></li>
@@ -52,6 +50,10 @@
             </ul>
 
             <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/base.html">base</a></li>
+            
+                <li><a href="../modules/iterator.html">iterator</a></li>
             
                 <li><a href="../modules/Iterator.html">Iterator</a></li>
             
@@ -90,18 +92,16 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: src/iterator.js</h1>
+                        <h1 class="file-heading">File: src/iterator/base.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
-//     Iterator
-//     (c) simonfan
-//     Iterator is licensed under the MIT terms.
-
 /**
- * AMD and CJS module.
+ * base
  *
- * @module Iterator
+ *
+ * @module iterator
+ * @submodule base
  */
 
 /* jshint ignore:start */
@@ -112,42 +112,66 @@ define([&#x27;subject&#x27;, &#x27;lodash&#x27;], function (subject, _) {
 	&#x27;use strict&#x27;;
 
 	/**
-	 * Should not be used directly.
-	 * Defines common functionality for arrayIterator and objectIterator.
+	 * Keeps reference to data object through a .data property,
+	 * sets initial currentIndexition and saves options.
 	 *
-	 * @class _iterator
-	 * @private
+	 * @method initialize
+	 * @param data {Array|Object}
+	 * @param [options] {Object}
 	 */
-	var _iterator = subject({
+	var iterator = subject(function iterator(data, options) {
+		this.data = data;
 
-		/**
-		 * Keeps reference to data object through a .data property,
-		 * sets initial currentIndexition and saves options.
-		 *
-		 * @method initialize
-		 * @param data {Array|Object}
-		 * @param [options] {Object}
-		 */
-		initialize: function (data, options) {
-			this.data = data;
+		options = options || {};
 
-			options = options || {};
+		this.currentIndex = options.startAt || -1;
 
-			this.currentIndex = options.startAt || -1;
+		this.options = options;
+		this.evaluate = options.evaluate || options.evaluator || this.evaluate;
+	});
 
-			this.options = options;
-			this.evaluator = options.evaluator || this.evaluator;
-		},
-
+	/**
+	 * Define proto properties.
+	 */
+	iterator.proto({
 		move: function move(quantity) {
-			this.currentIndex = this.currentIndex + quantity;
+			this.index(this.currentIndex + quantity);
 			return this;
 		},
 
 		/**
-		 *
+		 * The function that does the evaluation of the retrieved value/
 		 */
-		evaluator: function (v) { return v; },
+		evaluate: function evaluate(v) { return v; },
+
+		/**
+		 * Simple setter for evaluate.
+		 * @method evaluator
+		 */
+		evaluator: function evaluator(ev) {
+			this.evaluate = ev;
+			return this;
+		},
+
+		/**
+		 * Place the currentIndex at the starting position,
+		 * before all values.
+		 * @method start
+		 */
+		start: function start() {
+			this.currentIndex = -1;
+			return this;
+		},
+
+		/**
+		 * Place the currentIndex at the end positiion
+		 * after all values.
+		 * @method end
+		 */
+		end: function end() {
+			this.currentIndex = this.length();
+			return this;
+		},
 
 		/**
 		 * Sets the current index and returns this.
@@ -156,9 +180,9 @@ define([&#x27;subject&#x27;, &#x27;lodash&#x27;], function (subject, _) {
 		 * @method index
 		 * @param [pos] {Number}
 		 */
-		index: function (pos) {
+		index: function index(pos) {
 			if (pos &gt; this.length() - 1 || pos &lt; 0) {
-				throw new Error(&#x27;No such index&#x27;);
+				throw new Error(&#x27;No such index &#x27; + pos);
 			}
 
 			this.currentIndex = pos;
@@ -217,17 +241,22 @@ define([&#x27;subject&#x27;, &#x27;lodash&#x27;], function (subject, _) {
 		 * @param quantity
 		 */
 		nextN: function nextN(quantity) {
-			var curr = this.currentIndex,
-				res = this.range(curr + 1, curr + quantity);
 
-			this.move(quantity);
+			var res = [];
+
+			// define an end
+			var end = this.currentIndex + quantity - 1;
+
+			while (this.hasNext() &amp;&amp; this.currentIndex &lt;= end) {
+				res.push(this.next());
+			}
 
 			return res;
 		},
 
 
 		hasPrevious: function hasPrevious() {
-			return this.currentIndex &gt;= 0;
+			return this.currentIndex &gt; 0;
 		},
 
 		/**
@@ -248,9 +277,15 @@ define([&#x27;subject&#x27;, &#x27;lodash&#x27;], function (subject, _) {
 		 * @param quantity
 		 */
 		previousN: function previousN(quantity) {
-			this.move(-1 * quantity);
+			var res = [];
 
-			return this.range(this.currentIndex, this.currentIndex + quantity);
+			var start = this.currentIndex - quantity + 1;
+
+			while (this.hasPrevious() &amp;&amp; this.currentIndex &gt;= start) {
+				res.push(this.previous());
+			}
+
+			return res;
 		},
 
 		/**
@@ -268,87 +303,51 @@ define([&#x27;subject&#x27;, &#x27;lodash&#x27;], function (subject, _) {
 		value: function value() {
 			return this.data;
 		},
-
-		/**
-		 * This method is called when no more items are found,
-		 * either by &#x60;next&#x60; or &#x60;previous&#x60;.
-		 *
-		 * @method stop
-		 */
-		stop: function () {
-			return void(0);
-		},
 	});
 
 	// aliases
-	_iterator.inherit({
-		prev: _iterator.prototype.previous,
-		prevN: _iterator.prototype.previousN,
+	iterator.proto({
+		hasPrev: iterator.prototype.hasPrevious,
+		prev: iterator.prototype.previous,
+		prevN: iterator.prototype.previousN,
 	});
 
-	/**
-	 * Default initialization, custom .at method.
-	 *
-	 * @class arrayIterator
-	 */
-	var arrayIterator = _iterator.extend({
-		/**
-		 * Returns the value at a given index
-		 * optionally evaluated by a function.
-		 *
-		 * @method at
-		 * @param pos {Number}
-		 * @param [evaluator] {Function}
-		 */
-		at: function (pos) {
-			return this.evaluator(this.data[pos], pos);
-		},
+	// chainable methods
+	var chainable = [&#x27;map&#x27;, &#x27;filter&#x27;, &#x27;compact&#x27;, &#x27;difference&#x27;];
 
-		length: function () {
-			return this.data.length;
-		},
+	/**
+	 *
+	 * From lodash&#x27;s documentation:
+	 *
+     * The chainable wrapper functions are:
+     * &#x60;after&#x60;, &#x60;assign&#x60;, &#x60;bind&#x60;, &#x60;bindAll&#x60;, &#x60;bindKey&#x60;, &#x60;chain&#x60;, &#x60;compact&#x60;,
+     * &#x60;compose&#x60;, &#x60;concat&#x60;, &#x60;countBy&#x60;, &#x60;create&#x60;, &#x60;createCallback&#x60;, &#x60;curry&#x60;,
+     * &#x60;debounce&#x60;, &#x60;defaults&#x60;, &#x60;defer&#x60;, &#x60;delay&#x60;, &#x60;difference&#x60;, &#x60;filter&#x60;, &#x60;flatten&#x60;,
+     * &#x60;forEach&#x60;, &#x60;forEachRight&#x60;, &#x60;forIn&#x60;, &#x60;forInRight&#x60;, &#x60;forOwn&#x60;, &#x60;forOwnRight&#x60;,
+     * &#x60;functions&#x60;, &#x60;groupBy&#x60;, &#x60;indexBy&#x60;, &#x60;initial&#x60;, &#x60;intersection&#x60;, &#x60;invert&#x60;,
+     * &#x60;invoke&#x60;, &#x60;keys&#x60;, &#x60;map&#x60;, &#x60;max&#x60;, &#x60;memoize&#x60;, &#x60;merge&#x60;, &#x60;min&#x60;, &#x60;object&#x60;, &#x60;omit&#x60;,
+     * &#x60;once&#x60;, &#x60;pairs&#x60;, &#x60;partial&#x60;, &#x60;partialRight&#x60;, &#x60;pick&#x60;, &#x60;pluck&#x60;, &#x60;pull&#x60;, &#x60;push&#x60;,
+     * &#x60;range&#x60;, &#x60;reject&#x60;, &#x60;remove&#x60;, &#x60;rest&#x60;, &#x60;reverse&#x60;, &#x60;shuffle&#x60;, &#x60;slice&#x60;, &#x60;sort&#x60;,
+     * &#x60;sortBy&#x60;, &#x60;splice&#x60;, &#x60;tap&#x60;, &#x60;throttle&#x60;, &#x60;times&#x60;, &#x60;toArray&#x60;, &#x60;transform&#x60;,
+     * &#x60;union&#x60;, &#x60;uniq&#x60;, &#x60;unshift&#x60;, &#x60;unzip&#x60;, &#x60;values&#x60;, &#x60;where&#x60;, &#x60;without&#x60;, &#x60;wrap&#x60;,
+     * and &#x60;zip&#x60;
+     */
+
+	_.each(chainable, function (method) {
+		iterator.proto(method, function () {
+			// this function will be called within the
+			// iterator&#x27;s context.
+			var data = _(this.data);
+
+			data = data[method].apply(data, arguments);
+
+			var iter = this.constructor(data.value());
+
+			return iter;
+		});
 	});
 
-
-
-
-	/**
-	 * Has a custom initialization and a custom .at method.
-	 *
-	 * @class objectIterator
-	 */
-	var objectIterator = _iterator.extend({
-		initialize: function (data, options) {
-			options = options || {};
-
-			_iterator.prototype.initialize.apply(this, arguments);
-
-			this.order = options.order || _.keys(data);
-		},
-
-		at: function (pos) {
-			var key = this.order[pos],
-				value = this.data[key];
-
-			return this.evaluator(value, key);
-		},
-
-		length: function () {
-			return this.order.length;
-		},
-	});
-
-
-	/**
-	 * This function returns an instance of the correct iterator
-	 * according to the type of the data object.
-	 *
-	 * @class iterator
-	 */
-	return function iterator(data) {
-		var builder = _.isArray(data) ? arrayIterator : objectIterator;
-		return builder.apply(this, arguments);
-	};
+	return iterator;
 });
 
     </pre>

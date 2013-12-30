@@ -1,0 +1,1 @@
+var baseDep=typeof define!="function"?"./base":"iterator.base";define([baseDep,"lodash"],function(e,t){var n=e.extend({at:function(t){return this.evaluate(t,t)},length:function(){return this.data}});return n});
