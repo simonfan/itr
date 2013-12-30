@@ -1,5 +1,5 @@
 {
-  "name": "iterator",
+  "name": "itr",
   "main": "./src/index",
   "version": "0.1.0",
   "description": "Creates an iterator",
