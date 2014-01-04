@@ -3,7 +3,7 @@ YUI.add("yuidoc-meta", function(Y) {
     "classes": [
         "arrayIterator",
         "iterator",
-        "objectIterator"
+        "objectIt"
     ],
     "modules": [
         "Iterator",

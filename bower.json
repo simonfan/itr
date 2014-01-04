@@ -1,7 +1,7 @@
 {
   "name": "itr",
-  "main": "src/index.js",
-  "version": "0.1.1",
+  "main": "built/index.js",
+  "version": "0.1.2",
   "description": "Creates an iterator",
   "dependencies": {
     "subject": "~0.3.2",

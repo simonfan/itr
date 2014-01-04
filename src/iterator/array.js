@@ -29,11 +29,11 @@ define([baseDep, 'lodash'], function (iterator, _) {
 		 * @method at
 		 * @param pos {Number}
 		 */
-		at: function (pos) {
+		at: function at(pos) {
 			return this.evaluate(this.data[pos], pos);
 		},
 
-		length: function () {
+		length: function length() {
 			return this.data.length;
 		},
 	});

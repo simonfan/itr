@@ -45,7 +45,7 @@
             
                 <li><a href="../classes/iterator.html">iterator</a></li>
             
-                <li><a href="../classes/objectIterator.html">objectIterator</a></li>
+                <li><a href="../classes/objectIt.html">objectIt</a></li>
             
             </ul>
 
@@ -113,10 +113,10 @@ define([baseDep, &#x27;lodash&#x27;], function (iterator, _) {
 	/**
 	 * Has a custom initialization and a custom .at method.
 	 *
-	 * @class objectIterator
+	 * @class objectIt
 	 */
-	var objectIterator = iterator.extend({
-		initialize: function (data, options) {
+	var objectIt = iterator.extend({
+		initialize: function objectIterator(data, options) {
 			options = options || {};
 
 			iterator.prototype.initialize.apply(this, arguments);
@@ -134,14 +134,14 @@ define([baseDep, &#x27;lodash&#x27;], function (iterator, _) {
 			return this.order[pos];
 		},
 
-		at: function (pos) {
+		at: function at(pos) {
 			var key = this.keyAt(pos),
 				value = this.data[key];
 
 			return this.evaluate(value, key);
 		},
 
-		length: function () {
+		length: function length() {
 			return this.order.length;
 		},
 
@@ -151,8 +151,16 @@ define([baseDep, &#x27;lodash&#x27;], function (iterator, _) {
 		 *
 		 * @method nextKey
 		 */
-		nextKey: function () {
+		nextKey: function nextKey() {
 			return this.keyAt(this.currentIndex + 1);
+		},
+
+		currentKey: function currentKey() {
+			return this.keyAt(this.currentIndex);
+		},
+
+		previousKey: function previousKey() {
+			return this.keyAt(this.currentIndex - 1);
 		},
 
 		/**
@@ -174,9 +182,9 @@ define([baseDep, &#x27;lodash&#x27;], function (iterator, _) {
 		},
 	});
 
-	objectIterator.proto(&#x27;constructor&#x27;, objectIterator);
+	objectIt.proto(&#x27;constructor&#x27;, objectIt);
 
-	return objectIterator;
+	return objectIt;
 });
 
     </pre>

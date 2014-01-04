@@ -45,7 +45,7 @@
             
                 <li><a href="../classes/iterator.html">iterator</a></li>
             
-                <li><a href="../classes/objectIterator.html">objectIterator</a></li>
+                <li><a href="../classes/objectIt.html">objectIt</a></li>
             
             </ul>
 
@@ -127,11 +127,11 @@ define([baseDep, &#x27;lodash&#x27;], function (iterator, _) {
 		 * @method at
 		 * @param pos {Number}
 		 */
-		at: function (pos) {
+		at: function at(pos) {
 			return this.evaluate(this.data[pos], pos);
 		},
 
-		length: function () {
+		length: function length() {
 			return this.data.length;
 		},
 	});

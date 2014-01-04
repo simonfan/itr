@@ -33,7 +33,7 @@
             "name": "src/iterator/object.js",
             "modules": {},
             "classes": {
-                "objectIterator": 1
+                "objectIt": 1
             },
             "fors": {},
             "namespaces": {}
@@ -58,7 +58,7 @@
             },
             "classes": {
                 "arrayIterator": 1,
-                "objectIterator": 1
+                "objectIt": 1
             },
             "fors": {},
             "namespaces": {},
@@ -70,7 +70,7 @@
             "submodules": {},
             "classes": {
                 "arrayIterator": 1,
-                "objectIterator": 1
+                "objectIt": 1
             },
             "fors": {},
             "is_submodule": 1,
@@ -111,9 +111,9 @@
             "line": 16,
             "description": "Default initialization, custom .at method.\n\nIn addition to iterator methods, arrayIterators also have the following `Array` methods:\n`concat`, `join`, `pop`, `push`, `reverse`, `shift`, `slice`, `sort`, `splice`,\nand `unshift`"
         },
-        "objectIterator": {
-            "name": "objectIterator",
-            "shortname": "objectIterator",
+        "objectIt": {
+            "name": "objectIt",
+            "shortname": "objectIt",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -202,7 +202,7 @@
                     "optional": true
                 }
             ],
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -210,7 +210,7 @@
             "file": "src/iterator/base.js",
             "line": 35,
             "description": "Define proto properties.",
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -218,7 +218,7 @@
             "file": "src/iterator/base.js",
             "line": 44,
             "description": "The function that does the evaluation of the retrieved value/",
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -228,7 +228,7 @@
             "description": "Simple setter for evaluate.",
             "itemtype": "method",
             "name": "evaluator",
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -238,7 +238,7 @@
             "description": "Place the currentIndex at the starting position,\nbefore all values.",
             "itemtype": "method",
             "name": "start",
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -248,7 +248,7 @@
             "description": "Place the currentIndex at the end positiion\nafter all values.",
             "itemtype": "method",
             "name": "end",
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -266,7 +266,7 @@
                     "optional": true
                 }
             ],
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -288,7 +288,7 @@
                     "type": "Number"
                 }
             ],
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -298,7 +298,7 @@
             "description": "Increments the counter and returns the next value.",
             "itemtype": "method",
             "name": "next",
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -314,7 +314,7 @@
                     "description": ""
                 }
             ],
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -324,7 +324,7 @@
             "description": "Same as `next`, but backwards.",
             "itemtype": "method",
             "name": "previous",
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -340,7 +340,7 @@
                     "description": ""
                 }
             ],
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -350,7 +350,7 @@
             "description": "Returns the value of the current index.",
             "itemtype": "method",
             "name": "current",
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -358,7 +358,7 @@
             "file": "src/iterator/base.js",
             "line": 202,
             "description": "Returns data object.",
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -366,7 +366,7 @@
             "file": "src/iterator/base.js",
             "line": 220,
             "description": "From lodash's documentation:\nThe chainable wrapper functions are:\n `after`, `assign`, `bind`, `bindAll`, `bindKey`, `chain`, `compact`,\n `compose`, `concat`, `countBy`, `create`, `createCallback`, `curry`,\n `debounce`, `defaults`, `defer`, `delay`, `difference`, `filter`, `flatten`,\n `forEach`, `forEachRight`, `forIn`, `forInRight`, `forOwn`, `forOwnRight`,\n `functions`, `groupBy`, `indexBy`, `initial`, `intersection`, `invert`,\n `invoke`, `keys`, `map`, `max`, `memoize`, `merge`, `min`, `object`, `omit`,\n `once`, `pairs`, `partial`, `partialRight`, `pick`, `pluck`, `pull`, `push`,\n `range`, `reject`, `remove`, `rest`, `reverse`, `shuffle`, `slice`, `sort`,\n `sortBy`, `splice`, `tap`, `throttle`, `times`, `toArray`, `transform`,\n `union`, `uniq`, `unshift`, `unzip`, `values`, `where`, `without`, `wrap`,\n and `zip`",
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -382,7 +382,7 @@
                     "description": ""
                 }
             ],
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
@@ -392,25 +392,25 @@
             "description": "Returns the key of the next value in line.\nDoes NOT move the `currentIndex`.",
             "itemtype": "method",
             "name": "nextKey",
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
         {
             "file": "src/iterator/object.js",
-            "line": 60,
+            "line": 68,
             "description": "Transformations",
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         },
         {
             "file": "src/iterator/object.js",
-            "line": 64,
+            "line": 72,
             "description": "Overwrite the default map transformation method.",
             "itemtype": "method",
             "name": "map",
-            "class": "objectIterator",
+            "class": "objectIt",
             "module": "iterator",
             "submodule": "base"
         }
@@ -446,7 +446,7 @@
         },
         {
             "message": "Missing item type\nTransformations",
-            "line": " src/iterator/object.js:60"
+            "line": " src/iterator/object.js:68"
         }
     ]
 }

@@ -107,11 +107,11 @@ module.exports = function (grunt) {
 					mainConfigFile: 'amdconfig.js',
 
 					// include these modules
-					include: [],
+					include: ['iterator.array', 'iterator.object', 'iterator.base'],
 
 					// exclude these modules AND their dependencies
 					// (excluding your bower dependencies)
-					exclude: ['lodash'],
+					exclude: ['lodash', 'subject'],
 
 					// excludeShallow
 					excludeShallow: [],
