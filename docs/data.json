@@ -372,7 +372,33 @@
         },
         {
             "file": "src/iterator/object.js",
-            "line": 40,
+            "line": 29,
+            "description": "Returns the key at a given position.",
+            "itemtype": "method",
+            "name": "keyAt",
+            "params": [
+                {
+                    "name": "pos",
+                    "description": ""
+                }
+            ],
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
+        },
+        {
+            "file": "src/iterator/object.js",
+            "line": 50,
+            "description": "Returns the key of the next value in line.\nDoes NOT move the `currentIndex`.",
+            "itemtype": "method",
+            "name": "nextKey",
+            "class": "objectIterator",
+            "module": "iterator",
+            "submodule": "base"
+        },
+        {
+            "file": "src/iterator/object.js",
+            "line": 60,
             "description": "Transformations",
             "class": "objectIterator",
             "module": "iterator",
@@ -380,7 +406,7 @@
         },
         {
             "file": "src/iterator/object.js",
-            "line": 44,
+            "line": 64,
             "description": "Overwrite the default map transformation method.",
             "itemtype": "method",
             "name": "map",
@@ -420,7 +446,7 @@
         },
         {
             "message": "Missing item type\nTransformations",
-            "line": " src/iterator/object.js:40"
+            "line": " src/iterator/object.js:60"
         }
     ]
 }

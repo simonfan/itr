@@ -26,8 +26,18 @@ define([baseDep, 'lodash'], function (iterator, _) {
 			this.order = options.order || _.keys(data);
 		},
 
+		/**
+		 * Returns the key at a given position.
+		 *
+		 * @method keyAt
+		 * @param pos
+		 */
+		keyAt: function keyAt(pos) {
+			return this.order[pos];
+		},
+
 		at: function (pos) {
-			var key = this.order[pos],
+			var key = this.keyAt(pos),
 				value = this.data[key];
 
 			return this.evaluate(value, key);
@@ -35,6 +45,16 @@ define([baseDep, 'lodash'], function (iterator, _) {
 
 		length: function () {
 			return this.order.length;
+		},
+
+		/**
+		 * Returns the key of the next value in line.
+		 * Does NOT move the `currentIndex`.
+		 *
+		 * @method nextKey
+		 */
+		nextKey: function () {
+			return this.keyAt(this.currentIndex + 1);
 		},
 
 		/**

@@ -423,29 +423,48 @@
 		 */
 
 		describe('it = iterator(Object, { order: Array })', function () {
-			it('returns an iterator ordered by the order array instead of the default object order', function () {
-				var naturalOrder = iterator({
+
+			beforeEach(function () {
+				this.naturalOrder = iterator({
 					first: 1,
 					second: 2,
 					third: 3
 				});
 
-				naturalOrder.next().should.eql(1);
-				naturalOrder.next().should.eql(2);
-				naturalOrder.next().should.eql(3);
-
-				var artificialOrder = iterator({
+				this.artificialOrder = iterator({
 					first: 1,
 					second: 2,
 					third: 3
 				}, {
 					order: ['third', 'first', 'second']
 				});
+			});
+
+			it('returns an iterator ordered by the order array instead of the default object order', function () {
+				var naturalOrder = this.naturalOrder;
+
+				naturalOrder.next().should.eql(1);
+				naturalOrder.next().should.eql(2);
+				naturalOrder.next().should.eql(3);
+
+				var artificialOrder = this.artificialOrder;
 
 				artificialOrder.next().should.eql(3);
 				artificialOrder.next().should.eql(1);
 				artificialOrder.next().should.eql(2);
-			})
+			});
+
+			it('key = it.keyAt(pos)', function () {
+				var it = this.artificialOrder;
+
+				it.keyAt(2).should.eql('second');
+			});
+
+			it('key = it.nextKey()', function () {
+				var it = this.artificialOrder;
+
+				it.nextKey().should.eql('third')
+			});
 		});
 	});
 
