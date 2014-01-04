@@ -1,6 +1,6 @@
 {
   "name": "itr",
-  "main": "built/index.js",
+  "main": "built/iterator.js",
   "version": "0.1.2",
   "description": "Creates an iterator",
   "dependencies": {
