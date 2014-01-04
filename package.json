@@ -1,7 +1,7 @@
 {
   "name": "itr",
   "main": "./src/index",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Creates an iterator",
   "repository": {
     "type": "git",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "amdefine": ">=0.1.0",
-    "subject": "~0.2.2",
+    "subject": "~0.3.2",
     "lodash": "~2.4.1"
   },
   "devDependencies": {
