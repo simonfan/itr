@@ -7,15 +7,16 @@
  *
  * @module Iterator
  */
-var deps = (typeof define !== 'function') ?
-	['./iterator/array', './iterator/object', './iterator/number', 'lodash'] :
-	['iterator.array', 'iterator.object', 'iterator.number', 'lodash'];
-
 if (typeof define !== 'function') { var define = require('amdefine')(module) }	// jshint ignore:line
 
-define(deps, function (arrayIterator, objectIterator, numberIterator, _) {
+define(function (require, exports, module) {
 
 	'use strict';
+
+	var arrayIterator = require('iterator.array'),
+		objectIterator = require('iterator.object'),
+		numberIterator = require('iterator.object'),
+		_ = require('lodash');
 
 	/**
 	 * This function returns an instance of the correct iterator

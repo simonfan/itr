@@ -1,1 +1,1 @@
-var baseDep=typeof define!="function"?"./base":"iterator.base";define([baseDep,"lodash"],function(e,t){var n=e.extend({at:function(t){return this.evaluate(t,t)},length:function(){return this.data}});return n});
+define(["require","exports","module","iterator.base"],function(e,t,n){var r=e("iterator.base"),i=r.extend({at:function(t){return this.evaluate(t,t)},length:function(){return this.data}});return i});

@@ -100,14 +100,14 @@ module.exports = function (grunt) {
 					// (must coincide with that defined in mainConfigFile)
 					baseUrl: './',
 					// module name
-					name: 'iterator',
+					name: 'itr',
 					// output here
-					out: 'built/iterator.js',
+					out: 'built/itr.js',
 					// config file
 					mainConfigFile: 'amdconfig.js',
 
 					// include these modules
-					include: ['iterator.array', 'iterator.object', 'iterator.base'],
+					include: ['iterator.array', 'iterator.object', 'iterator.number', 'iterator.base'],
 
 					// exclude these modules AND their dependencies
 					// (excluding your bower dependencies)
@@ -116,7 +116,7 @@ module.exports = function (grunt) {
 					// excludeShallow
 					excludeShallow: [],
 
-					optimize: 'uglify2',
+					optimize: 'none',
 				}
 			},
 

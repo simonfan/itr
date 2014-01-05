@@ -11,7 +11,7 @@ require.config({
 		underscore: 'bower_components/underscore/underscore',
 		lodash: 'bower_components/lodash/dist/lodash.compat',
 		subject: 'bower_components/subject/src/subject',
-		iterator: 'src/index',
+		itr: 'src/index',
 		'iterator.base': 'src/iterator/base',
 		'iterator.array': 'src/iterator/array',
 		'iterator.object': 'src/iterator/object',

@@ -1,7 +1,7 @@
 {
   "name": "itr",
   "main": "./src/index",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Creates an iterator",
   "repository": {
     "type": "git",

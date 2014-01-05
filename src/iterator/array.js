@@ -6,12 +6,13 @@
  * @submodule base
  */
 
-var baseDep = (typeof define !== 'function') ? './base' : 'iterator.base';
-
 if (typeof define !== 'function') { var define = require('amdefine')(module) } // jshint ignore:line
 
-define([baseDep, 'lodash'], function (iterator, _) {
+define(function (require, exports, module) {
 	'use strict';
+
+	var iterator = require('iterator.base'),
+		_ = require('lodash');
 
 	/**
 	 * Default initialization, custom .at method.

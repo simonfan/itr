@@ -1,7 +1,7 @@
 {
   "name": "itr",
-  "main": "built/iterator.js",
-  "version": "0.1.2",
+  "main": "built/itr.js",
+  "version": "0.1.3",
   "description": "Creates an iterator",
   "dependencies": {
     "subject": "~0.3.2",
