@@ -9,13 +9,17 @@
  */
 if (typeof define !== 'function') { var define = require('amdefine')(module) }	// jshint ignore:line
 
+//>>excludeStart("exclude", pragmas.exclude);
+var lalala = 'lalalalala';
+//>>excludeEnd("exclude");
+
 define(function (require, exports, module) {
 
 	'use strict';
 
-	var arrayIterator = require('iterator.array'),
-		objectIterator = require('iterator.object'),
-		numberIterator = require('iterator.object'),
+	var arrayIterator = require('./iterator/array'),
+		objectIterator = require('./iterator/object'),
+		numberIterator = require('./iterator/number'),
 		_ = require('lodash');
 
 	/**

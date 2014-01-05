@@ -1,22 +1,18 @@
 require.config({
-	urlArgs: 'bust=0.02688813372515142',
-	baseUrl: '/',
+	urlArgs: 'bust=0.3256860862020403',
+	baseUrl: '/src',
 	paths: {
-		requirejs: 'bower_components/requirejs/require',
-		text: 'bower_components/requirejs-text/text',
-		mocha: 'node_modules/mocha/mocha',
-		should: 'node_modules/should/should',
-		jquery: 'bower_components/jquery/jquery',
-		'requirejs-text': 'bower_components/requirejs-text/text',
-		underscore: 'bower_components/underscore/underscore',
-		lodash: 'bower_components/lodash/dist/lodash.compat',
-		subject: 'bower_components/subject/src/subject',
-		itr: 'src/index',
-		'iterator.base': 'src/iterator/base',
-		'iterator.array': 'src/iterator/array',
-		'iterator.object': 'src/iterator/object',
-		'iterator.number': 'src/iterator/number',
-		'iterator.optimized': 'built/iterator'
+		requirejs: '../bower_components/requirejs/require',
+		text: '../bower_components/requirejs-text/text',
+		mocha: '../node_modules/mocha/mocha',
+		should: '../node_modules/should/should',
+		itr: 'index',
+		lodash: '../bower_components/lodash/dist/lodash.compat',
+		jquery: '../bower_components/jquery/jquery',
+		qunit: '../bower_components/qunit/qunit/qunit',
+		'requirejs-text': '../bower_components/requirejs-text/text',
+		underscore: '../bower_components/underscore/underscore',
+		subject: '../bower_components/subject/src/subject'
 	},
 	shim: {
 		backbone: {

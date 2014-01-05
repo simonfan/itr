@@ -4,7 +4,7 @@
 		// node
 		'../src/index' :
 		// browser
-		'iterator',
+		'itr',
 		// dependencies for the test
 		deps = [mod, 'should', 'lodash'];
 

@@ -1,6 +1,6 @@
-define(['iterator'], function (Iterator) {
+define(['itr'], function (Itr) {
 
-    var msg = 'Main demo of the iterator module running!';
+    var msg = 'Main demo of the itr module running!';
 
 	console.log(msg);
 

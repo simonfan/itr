@@ -11,7 +11,7 @@ if (typeof define !== 'function') { var define = require('amdefine')(module) } /
 define(function (require, exports, module) {
 	'use strict';
 
-	var iterator = require('iterator.base'),
+	var iterator = require('./base'),
 		_ = require('lodash');
 
 	/**

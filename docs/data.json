@@ -1,6 +1,6 @@
 {
     "project": {
-        "name": "iterator",
+        "name": "itr",
         "version": "0.0.0"
     },
     "files": {
@@ -63,7 +63,7 @@
             "fors": {},
             "namespaces": {},
             "file": "src/iterator/object.js",
-            "line": 15
+            "line": 16
         },
         "base": {
             "name": "base",
@@ -78,7 +78,7 @@
             "module": "iterator",
             "namespace": "",
             "file": "src/iterator/object.js",
-            "line": 15,
+            "line": 16,
             "description": "base"
         },
         "Iterator": {
@@ -91,7 +91,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "src/index.js",
-            "line": 20,
+            "line": 25,
             "description": "AMD and CJS module."
         }
     },
@@ -108,7 +108,7 @@
             "submodule": "base",
             "namespace": "",
             "file": "src/iterator/array.js",
-            "line": 16,
+            "line": 17,
             "description": "Default initialization, custom .at method.\n\nIn addition to iterator methods, arrayIterators also have the following `Array` methods:\n`concat`, `join`, `pop`, `push`, `reverse`, `shift`, `slice`, `sort`, `splice`,\nand `unshift`"
         },
         "objectIt": {
@@ -123,7 +123,7 @@
             "submodule": "base",
             "namespace": "",
             "file": "src/iterator/object.js",
-            "line": 15,
+            "line": 16,
             "description": "Has a custom initialization and a custom .at method."
         },
         "iterator": {
@@ -137,14 +137,14 @@
             "module": "Iterator",
             "namespace": "",
             "file": "src/index.js",
-            "line": 20,
+            "line": 25,
             "description": "This function returns an instance of the correct iterator\naccording to the type of the data object."
         }
     },
     "classitems": [
         {
             "file": "src/iterator/array.js",
-            "line": 26,
+            "line": 27,
             "description": "Returns the value at a given index",
             "itemtype": "method",
             "name": "at",
@@ -161,7 +161,7 @@
         },
         {
             "file": "src/iterator/array.js",
-            "line": 41,
+            "line": 42,
             "description": "Array methods",
             "class": "arrayIterator",
             "module": "iterator",
@@ -169,7 +169,7 @@
         },
         {
             "file": "src/iterator/array.js",
-            "line": 45,
+            "line": 46,
             "description": "Methods that alter `data` property directly",
             "class": "arrayIterator",
             "module": "iterator",
@@ -177,7 +177,7 @@
         },
         {
             "file": "src/iterator/array.js",
-            "line": 58,
+            "line": 59,
             "description": "Methods that create a new array and return a new iterator.",
             "class": "arrayIterator",
             "module": "iterator",
@@ -372,7 +372,7 @@
         },
         {
             "file": "src/iterator/object.js",
-            "line": 29,
+            "line": 30,
             "description": "Returns the key at a given position.",
             "itemtype": "method",
             "name": "keyAt",
@@ -388,7 +388,7 @@
         },
         {
             "file": "src/iterator/object.js",
-            "line": 50,
+            "line": 51,
             "description": "Returns the key of the next value in line.\nDoes NOT move the `currentIndex`.",
             "itemtype": "method",
             "name": "nextKey",
@@ -398,7 +398,7 @@
         },
         {
             "file": "src/iterator/object.js",
-            "line": 68,
+            "line": 69,
             "description": "Transformations",
             "class": "objectIt",
             "module": "iterator",
@@ -406,7 +406,7 @@
         },
         {
             "file": "src/iterator/object.js",
-            "line": 72,
+            "line": 73,
             "description": "Overwrite the default map transformation method.",
             "itemtype": "method",
             "name": "map",
@@ -418,15 +418,15 @@
     "warnings": [
         {
             "message": "Missing item type\nArray methods",
-            "line": " src/iterator/array.js:41"
+            "line": " src/iterator/array.js:42"
         },
         {
             "message": "Missing item type\nMethods that alter `data` property directly",
-            "line": " src/iterator/array.js:45"
+            "line": " src/iterator/array.js:46"
         },
         {
             "message": "Missing item type\nMethods that create a new array and return a new iterator.",
-            "line": " src/iterator/array.js:58"
+            "line": " src/iterator/array.js:59"
         },
         {
             "message": "Missing item type\nDefine proto properties.",
@@ -446,7 +446,7 @@
         },
         {
             "message": "Missing item type\nTransformations",
-            "line": " src/iterator/object.js:68"
+            "line": " src/iterator/object.js:69"
         }
     ]
 }
