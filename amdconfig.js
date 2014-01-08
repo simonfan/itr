@@ -12,7 +12,7 @@ require.config({
 		qunit: '../bower_components/qunit/qunit/qunit',
 		'requirejs-text': '../bower_components/requirejs-text/text',
 		underscore: '../bower_components/underscore/underscore',
-		subject: '../bower_components/subject/src/subject'
+		subject: '../bower_components/subject/built/subject'
 	},
 	shim: {
 		backbone: {

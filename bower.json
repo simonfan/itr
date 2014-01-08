@@ -5,7 +5,7 @@
   "description": "Some module...",
   "dependencies": {
     "lodash": "~2.4.1",
-    "subject": "~0.3.2"
+    "subject": "~0.3.3"
   },
   "devDependencies": {
     "requirejs": "*",
