@@ -114,7 +114,40 @@ module.exports = function (grunt) {
 
 					// exclude these modules AND their dependencies
 					// (excluding your bower dependencies)
-					exclude: ["lodash"],
+					exclude: ["lodash", "subject"],
+
+					// excludeShallow
+					excludeShallow: [],
+
+					optimize: 'uglify2',
+
+					pragmas: {
+						exclude: true,
+					},
+				}
+			},
+
+			// run r.js to generate a single file as the output
+			// minifying and inlining all dependencies.
+			dev: {
+				options: {
+					// base url where to look for module files
+					// and relative to which the module paths will be defined
+					// (must coincide with that defined in mainConfigFile)
+					baseUrl: './src',
+					// module name
+					name: 'itr',
+					// output here
+					out: 'built/itr.dev.js',
+					// config file
+					mainConfigFile: 'amdconfig.js',
+
+					// include these modules
+					include: [],
+
+					// exclude these modules AND their dependencies
+					// (excluding your bower dependencies)
+					exclude: ["lodash", "subject"],
 
 					// excludeShallow
 					excludeShallow: [],
