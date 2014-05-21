@@ -21,21 +21,18 @@ define(['subject', 'lodash'], function (subject, _) {
 	 * @param data {Array|Object}
 	 * @param [options] {Object}
 	 */
-	var iterator = subject(function iterator(data, options) {
-		this.data = data;
+	var iterator = subject({
+		initialize: function iterator(data, options) {
+			this.data = data;
 
-		options = options || {};
+			options = options || {};
 
-		this.currentIndex = options.startAt || -1;
+			this.currentIndex = options.startAt || -1;
 
-		this.options = options;
-		this.evaluate = options.evaluate || options.evaluator || this.evaluate;
-	});
+			this.options = options;
+			this.evaluate = options.evaluate || options.evaluator || this.evaluate;
+		},
 
-	/**
-	 * Define proto properties.
-	 */
-	iterator.proto({
 		move: function move(quantity) {
 			this.index(this.currentIndex + quantity);
 			return this;
@@ -244,7 +241,6 @@ define(['subject', 'lodash'], function (subject, _) {
 			data = data[method].apply(data, arguments);
 
 			var iter = this.constructor(data.value());
-
 			return iter;
 		});
 	});

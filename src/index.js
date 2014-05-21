@@ -19,7 +19,6 @@ define(function (require, exports, module) {
 
 	var arrayIterator = require('./iterator/array'),
 		objectIterator = require('./iterator/object'),
-		numberIterator = require('./iterator/number'),
 		_ = require('lodash');
 
 	/**
@@ -39,10 +38,6 @@ define(function (require, exports, module) {
 
 			builder = objectIterator;
 
-		} else if (_.isNumber(data)) {
-
-			builder = numberIterator;
-
 		}
 
 		return builder.apply(this, arguments);
@@ -50,7 +45,6 @@ define(function (require, exports, module) {
 
 	iterator.object = objectIterator;
 	iterator.array = arrayIterator;
-	iterator.number = numberIterator;
 
 	return iterator;
 });

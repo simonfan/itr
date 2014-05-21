@@ -117,7 +117,6 @@ define(function (require, exports, module) {
 
 	var arrayIterator = require(&#x27;./iterator/array&#x27;),
 		objectIterator = require(&#x27;./iterator/object&#x27;),
-		numberIterator = require(&#x27;./iterator/number&#x27;),
 		_ = require(&#x27;lodash&#x27;);
 
 	/**
@@ -137,10 +136,6 @@ define(function (require, exports, module) {
 
 			builder = objectIterator;
 
-		} else if (_.isNumber(data)) {
-
-			builder = numberIterator;
-
 		}
 
 		return builder.apply(this, arguments);
@@ -148,7 +143,6 @@ define(function (require, exports, module) {
 
 	iterator.object = objectIterator;
 	iterator.array = arrayIterator;
-	iterator.number = numberIterator;
 
 	return iterator;
 });

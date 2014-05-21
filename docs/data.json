@@ -22,13 +22,6 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/iterator/number.js": {
-            "name": "src/iterator/number.js",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
         "src/iterator/object.js": {
             "name": "src/iterator/object.js",
             "modules": {},
@@ -91,7 +84,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "src/index.js",
-            "line": 25,
+            "line": 24,
             "description": "AMD and CJS module."
         }
     },
@@ -137,7 +130,7 @@
             "module": "Iterator",
             "namespace": "",
             "file": "src/index.js",
-            "line": 25,
+            "line": 24,
             "description": "This function returns an instance of the correct iterator\naccording to the type of the data object."
         }
     },
@@ -208,15 +201,7 @@
         },
         {
             "file": "src/iterator/base.js",
-            "line": 35,
-            "description": "Define proto properties.",
-            "class": "objectIt",
-            "module": "iterator",
-            "submodule": "base"
-        },
-        {
-            "file": "src/iterator/base.js",
-            "line": 44,
+            "line": 41,
             "description": "The function that does the evaluation of the retrieved value/",
             "class": "objectIt",
             "module": "iterator",
@@ -224,7 +209,7 @@
         },
         {
             "file": "src/iterator/base.js",
-            "line": 49,
+            "line": 46,
             "description": "Simple setter for evaluate.",
             "itemtype": "method",
             "name": "evaluator",
@@ -234,7 +219,7 @@
         },
         {
             "file": "src/iterator/base.js",
-            "line": 58,
+            "line": 55,
             "description": "Place the currentIndex at the starting position,\nbefore all values.",
             "itemtype": "method",
             "name": "start",
@@ -244,7 +229,7 @@
         },
         {
             "file": "src/iterator/base.js",
-            "line": 68,
+            "line": 65,
             "description": "Place the currentIndex at the end positiion\nafter all values.",
             "itemtype": "method",
             "name": "end",
@@ -254,7 +239,7 @@
         },
         {
             "file": "src/iterator/base.js",
-            "line": 78,
+            "line": 75,
             "description": "Sets the current index and returns this.\nIf given no argument, returns the current index.",
             "itemtype": "method",
             "name": "index",
@@ -272,7 +257,7 @@
         },
         {
             "file": "src/iterator/base.js",
-            "line": 103,
+            "line": 100,
             "description": "Equivalent to calling `iterator.at(pos)`\nfor multiple indexs within a range.",
             "itemtype": "method",
             "name": "range",
@@ -294,7 +279,7 @@
         },
         {
             "file": "src/iterator/base.js",
-            "line": 127,
+            "line": 124,
             "description": "Increments the counter and returns the next value.",
             "itemtype": "method",
             "name": "next",
@@ -304,7 +289,7 @@
         },
         {
             "file": "src/iterator/base.js",
-            "line": 138,
+            "line": 135,
             "description": "Returns an array for the next n values\nand increments the counter in n.",
             "itemtype": "method",
             "name": "nextN",
@@ -320,7 +305,7 @@
         },
         {
             "file": "src/iterator/base.js",
-            "line": 164,
+            "line": 161,
             "description": "Same as `next`, but backwards.",
             "itemtype": "method",
             "name": "previous",
@@ -330,7 +315,7 @@
         },
         {
             "file": "src/iterator/base.js",
-            "line": 175,
+            "line": 172,
             "description": "Same as `nextN` but backwards.",
             "itemtype": "method",
             "name": "previousN",
@@ -346,7 +331,7 @@
         },
         {
             "file": "src/iterator/base.js",
-            "line": 193,
+            "line": 190,
             "description": "Returns the value of the current index.",
             "itemtype": "method",
             "name": "current",
@@ -356,7 +341,7 @@
         },
         {
             "file": "src/iterator/base.js",
-            "line": 202,
+            "line": 199,
             "description": "Returns data object.",
             "class": "objectIt",
             "module": "iterator",
@@ -364,7 +349,7 @@
         },
         {
             "file": "src/iterator/base.js",
-            "line": 220,
+            "line": 217,
             "description": "From lodash's documentation:\nThe chainable wrapper functions are:\n `after`, `assign`, `bind`, `bindAll`, `bindKey`, `chain`, `compact`,\n `compose`, `concat`, `countBy`, `create`, `createCallback`, `curry`,\n `debounce`, `defaults`, `defer`, `delay`, `difference`, `filter`, `flatten`,\n `forEach`, `forEachRight`, `forIn`, `forInRight`, `forOwn`, `forOwnRight`,\n `functions`, `groupBy`, `indexBy`, `initial`, `intersection`, `invert`,\n `invoke`, `keys`, `map`, `max`, `memoize`, `merge`, `min`, `object`, `omit`,\n `once`, `pairs`, `partial`, `partialRight`, `pick`, `pluck`, `pull`, `push`,\n `range`, `reject`, `remove`, `rest`, `reverse`, `shuffle`, `slice`, `sort`,\n `sortBy`, `splice`, `tap`, `throttle`, `times`, `toArray`, `transform`,\n `union`, `uniq`, `unshift`, `unzip`, `values`, `where`, `without`, `wrap`,\n and `zip`",
             "class": "objectIt",
             "module": "iterator",
@@ -429,20 +414,16 @@
             "line": " src/iterator/array.js:59"
         },
         {
-            "message": "Missing item type\nDefine proto properties.",
-            "line": " src/iterator/base.js:35"
-        },
-        {
             "message": "Missing item type\nThe function that does the evaluation of the retrieved value/",
-            "line": " src/iterator/base.js:44"
+            "line": " src/iterator/base.js:41"
         },
         {
             "message": "Missing item type\nReturns data object.",
-            "line": " src/iterator/base.js:202"
+            "line": " src/iterator/base.js:199"
         },
         {
             "message": "Missing item type\nFrom lodash's documentation:\nThe chainable wrapper functions are:\n `after`, `assign`, `bind`, `bindAll`, `bindKey`, `chain`, `compact`,\n `compose`, `concat`, `countBy`, `create`, `createCallback`, `curry`,\n `debounce`, `defaults`, `defer`, `delay`, `difference`, `filter`, `flatten`,\n `forEach`, `forEachRight`, `forIn`, `forInRight`, `forOwn`, `forOwnRight`,\n `functions`, `groupBy`, `indexBy`, `initial`, `intersection`, `invert`,\n `invoke`, `keys`, `map`, `max`, `memoize`, `merge`, `min`, `object`, `omit`,\n `once`, `pairs`, `partial`, `partialRight`, `pick`, `pluck`, `pull`, `push`,\n `range`, `reject`, `remove`, `rest`, `reverse`, `shuffle`, `slice`, `sort`,\n `sortBy`, `splice`, `tap`, `throttle`, `times`, `toArray`, `transform`,\n `union`, `uniq`, `unshift`, `unzip`, `values`, `where`, `without`, `wrap`,\n and `zip`",
-            "line": " src/iterator/base.js:220"
+            "line": " src/iterator/base.js:217"
         },
         {
             "message": "Missing item type\nTransformations",

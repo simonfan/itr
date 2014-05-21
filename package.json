@@ -1,7 +1,7 @@
 {
   "name": "itr",
   "main": "./src",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Some module...",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "dependencies": {
     "amdefine": ">=0.1.0",
     "lodash": "~2.4.1",
-    "subject": "~0.3.3"
+    "subject": "~0.5.8"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
